@@ -1,0 +1,30 @@
+type Query {
+  movies(page: Int, locale: String, sortBy: String, isAdult: Boolean!): Movies!
+  movieDetails(id: ID!, locale: String): Movie!
+}
+type Movies {
+  page: Int!
+  totalResults: Int!
+  totalPages: Int!
+  results: [Movie!]!
+}
+
+type Movie {
+  id: ID!
+  title: String!
+  posterPath: String
+  releaseDate: String!
+  adult: Boolean!
+  genres: [Genre]
+  overview: String!
+  originalTitle: String!
+  originalLanguage: String!
+  popularity: Float!
+  voteCount: Int!
+  video: Boolean!
+  voteAverage: Float!
+}
+type Genre {
+  id: Int!
+  name: String!
+}
